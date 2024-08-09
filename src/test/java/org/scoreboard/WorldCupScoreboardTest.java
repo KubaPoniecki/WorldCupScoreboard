@@ -7,7 +7,10 @@ import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.Collections;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnitParamsRunner.class)
 public class WorldCupScoreboardTest
@@ -39,6 +42,16 @@ public class WorldCupScoreboardTest
         Match match = new Match("Mexico", "Canada");
         ScoreBoard.add(match);
         assertEquals(match, ScoreBoard.get(0));
+    }
+
+    @Test
+    public void finishingAllOngoingMatches () {
+        Match match = new Match("Mexico", "Canada");
+        Match match2 = new Match("Spain", "Brazil");
+        ScoreBoard.add(match);
+        ScoreBoard.add(match2);
+        ScoreBoard.finishAll();
+        assertEquals(Collections.emptyList(), ScoreBoard.ongoingMatches());
     }
 
 }

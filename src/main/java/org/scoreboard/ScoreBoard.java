@@ -13,4 +13,12 @@ public class ScoreBoard {
     public static Match get(int index) {
         return scoreBoard.get(index);
     }
+
+    public static void finishAll() {
+        scoreBoard.clear();
+    }
+
+    public static List<Match> ongoingMatches() {
+        return scoreBoard;
+    }
 }
