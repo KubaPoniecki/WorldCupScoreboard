@@ -19,6 +19,11 @@ public class Match {
         return homeTeam + " " + homeTeamScore + " - " + awayTeam + " " + awayTeamScore;
     }
 
+    public void setScore(int homeTeamScore, int awayTeamScore) {
+        this.homeTeamScore = homeTeamScore;
+        this.awayTeamScore = awayTeamScore;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,4 +36,5 @@ public class Match {
     public int hashCode() {
         return Objects.hash(homeTeam, awayTeam, homeTeamScore, awayTeamScore);
     }
+
 }

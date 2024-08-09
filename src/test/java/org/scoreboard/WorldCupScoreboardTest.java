@@ -16,4 +16,11 @@ public class WorldCupScoreboardTest
         assertEquals(match.getScore(), "Mexico 0 - Canada 0");
     }
 
+    @Test
+    public void changingScoreOfMatch() {
+        Match match = new Match("Mexico", "Canada");
+        match.setScore(1,0);
+        assertEquals(match.getScore(), "Mexico 1 - Canada 0");
+    }
+
 }
