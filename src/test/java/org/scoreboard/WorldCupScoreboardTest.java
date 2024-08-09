@@ -34,4 +34,12 @@ public class WorldCupScoreboardTest
         match.setScore(homeTeamScore,awayTeamScore);
     }
 
+    @Test
+    public void addMatchToTheScoreBoard() {
+        Match match = new Match("Mexico", "Canada");
+        ScoreBoard scoreBoard = new ScoreBoard();
+        scoreBoard.add(match);
+        assertEquals(match, scoreBoard.get(0));
+    }
+
 }
