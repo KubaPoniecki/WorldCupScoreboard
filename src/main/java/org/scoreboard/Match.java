@@ -20,6 +20,9 @@ public class Match {
     }
 
     public void setScore(int homeTeamScore, int awayTeamScore) {
+        if (homeTeamScore < 0 || awayTeamScore < 0) {
+            throw new IllegalArgumentException("Score can't be negative");
+        }
         this.homeTeamScore = homeTeamScore;
         this.awayTeamScore = awayTeamScore;
     }
