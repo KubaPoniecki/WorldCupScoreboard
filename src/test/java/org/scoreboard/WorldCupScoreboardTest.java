@@ -20,14 +20,11 @@ public class WorldCupScoreboardTest
     }
 
     @Test
-    public void changingScoreOfMatch() {
+    @Parameters({"1, 0", "1, 1", "1, 2"})
+    public void changingScoreOfMatch(int homeTeamScore, int awayTeamScore) {
         Match match = new Match("Mexico", "Canada");
-        match.setScore(1,0);
-        assertEquals(match.getScore(), "Mexico 1 - Canada 0");
-        match.setScore(1,1);
-        assertEquals(match.getScore(), "Mexico 1 - Canada 1");
-        match.setScore(1,2);
-        assertEquals(match.getScore(), "Mexico 1 - Canada 2");
+        match.setScore(homeTeamScore,awayTeamScore);
+        assertEquals(match.getScore(), "Mexico " + homeTeamScore + " - Canada " + awayTeamScore);
     }
 
     @Test(expected = IllegalArgumentException.class)
