@@ -13,9 +13,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnitParamsRunner.class)
-public class WorldCupScoreboardTest
-
-{
+public class WorldCupScoreboardTest {
     @Test
     public void settingNewMatchScoreToZeros() {
         Match match = new Match("Mexico", "Canada");
@@ -26,7 +24,7 @@ public class WorldCupScoreboardTest
     @Parameters({"1, 0", "1, 1", "1, 2"})
     public void changingScoreOfMatch(int homeTeamScore, int awayTeamScore) {
         Match match = new Match("Mexico", "Canada");
-        match.setScore(homeTeamScore,awayTeamScore);
+        match.setScore(homeTeamScore, awayTeamScore);
         assertEquals("Mexico " + homeTeamScore + " - Canada " + awayTeamScore, match.getScore());
     }
 
@@ -34,7 +32,7 @@ public class WorldCupScoreboardTest
     @Parameters({"-1, 0", "0, -1", "-1, -1"})
     public void settingScoreToWrongNumber(int homeTeamScore, int awayTeamScore) {
         Match match = new Match("Mexico", "Canada");
-        match.setScore(homeTeamScore,awayTeamScore);
+        match.setScore(homeTeamScore, awayTeamScore);
     }
 
     @Test
@@ -45,13 +43,23 @@ public class WorldCupScoreboardTest
     }
 
     @Test
-    public void finishingAllOngoingMatches () {
+    public void finishAllOngoingMatches() {
         Match match = new Match("Mexico", "Canada");
         Match match2 = new Match("Spain", "Brazil");
         ScoreBoard.add(match);
         ScoreBoard.add(match2);
         ScoreBoard.finishAll();
         assertEquals(Collections.emptyList(), ScoreBoard.ongoingMatches());
+    }
+
+    @Test
+    public void finishMatchRemoveFromScoreBoard() {
+        Match match = new Match("Mexico", "Canada");
+        Match match2 = new Match("Spain", "Brazil");
+        ScoreBoard.add(match);
+        ScoreBoard.add(match2);
+        ScoreBoard.finish("Mexico", "Canada");
+        assertEquals(1, ScoreBoard.ongoingMatches().size());
     }
 
 }
