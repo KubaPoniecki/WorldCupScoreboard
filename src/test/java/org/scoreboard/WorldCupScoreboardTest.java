@@ -37,9 +37,8 @@ public class WorldCupScoreboardTest
     @Test
     public void addMatchToTheScoreBoard() {
         Match match = new Match("Mexico", "Canada");
-        ScoreBoard scoreBoard = new ScoreBoard();
-        scoreBoard.add(match);
-        assertEquals(match, scoreBoard.get(0));
+        ScoreBoard.add(match);
+        assertEquals(match, ScoreBoard.get(0));
     }
 
 }
