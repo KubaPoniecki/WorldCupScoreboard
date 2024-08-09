@@ -13,7 +13,7 @@ public class WorldCupScoreboardTest
     @Test
     public void settingNewMatchScoreToZeros() {
         Match match = new Match("Mexico", "Canada");
-        assertEquals(match.getScore(), "0 - 0");
+        assertEquals(match.getScore(), "Mexico 0 - Canada 0");
     }
 
 }
