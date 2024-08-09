@@ -16,7 +16,7 @@ public class WorldCupScoreboardTest
     @Test
     public void settingNewMatchScoreToZeros() {
         Match match = new Match("Mexico", "Canada");
-        assertEquals(match.getScore(), "Mexico 0 - Canada 0");
+        assertEquals("Mexico 0 - Canada 0", match.getScore());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class WorldCupScoreboardTest
     public void changingScoreOfMatch(int homeTeamScore, int awayTeamScore) {
         Match match = new Match("Mexico", "Canada");
         match.setScore(homeTeamScore,awayTeamScore);
-        assertEquals(match.getScore(), "Mexico " + homeTeamScore + " - Canada " + awayTeamScore);
+        assertEquals("Mexico " + homeTeamScore + " - Canada " + awayTeamScore, match.getScore());
     }
 
     @Test(expected = IllegalArgumentException.class)
