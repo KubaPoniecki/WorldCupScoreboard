@@ -21,4 +21,13 @@ public class ScoreBoard {
     public static List<Match> ongoingMatches() {
         return scoreBoard;
     }
+
+    public static void finish(String homeTeam, String awayTeam) {
+        for (Match m : scoreBoard) {
+            if (m.getHomeTeam().equals(homeTeam) && m.getAwayTeam().equals(awayTeam)) {
+                scoreBoard.remove(m);
+                return;
+            }
+        }
+    }
 }

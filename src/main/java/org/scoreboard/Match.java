@@ -27,6 +27,14 @@ public class Match {
         this.awayTeamScore = awayTeamScore;
     }
 
+    public String getAwayTeam() {
+        return awayTeam;
+    }
+
+    public String getHomeTeam() {
+        return homeTeam;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
