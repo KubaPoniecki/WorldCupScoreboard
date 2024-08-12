@@ -58,6 +58,15 @@ public class WorldCupScoreboardTest {
         assertEquals(match, ScoreBoard.get(0));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    @Parameters({"Mexico, Canada, Brazil", "Mexico, Mexico, Mexico", "Brazil, Canada, Brazil"})
+    public void addMatchWhenTeamIsAlreadyPlaying(String team1, String team2, String team3) {
+        Match match = new Match(team1, team2);
+        Match match2 = new Match(team1, team3);
+        ScoreBoard.add(match);
+        ScoreBoard.add(match2);
+    }
+
     @Test
     public void finishAllOngoingMatches() {
         Match match = new Match("Mexico", "Canada");
