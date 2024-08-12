@@ -8,6 +8,7 @@ public class Match implements Comparable<Match>{
     private int homeTeamScore;
     private int awayTeamScore;
     private int totalScore;
+    private int whenStarted;
 
     public Match(String homeTeam, String awayTeam) {
         this.homeTeam = homeTeam;
@@ -30,6 +31,10 @@ public class Match implements Comparable<Match>{
         this.totalScore = homeTeamScore + awayTeamScore;
     }
 
+    public void setStart(int whenStarted) {
+        this.whenStarted = whenStarted;
+    }
+
     public String getAwayTeam() {
         return awayTeam;
     }
@@ -40,6 +45,10 @@ public class Match implements Comparable<Match>{
 
     public int getTotalScore() {
         return totalScore;
+    }
+
+    public int getWhenStarted () {
+        return whenStarted;
     }
 
     @Override
@@ -57,6 +66,9 @@ public class Match implements Comparable<Match>{
 
     @Override
     public int compareTo(Match otherMatch) {
+        if (otherMatch.getTotalScore() == getTotalScore()){
+            return Integer.compare(otherMatch.getWhenStarted(), getWhenStarted());
+        }
         return Integer.compare(otherMatch.getTotalScore(), getTotalScore());
     }
 }

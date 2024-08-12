@@ -6,9 +6,12 @@ import java.util.List;
 
 public class ScoreBoard {
     private static final List<Match> scoreBoard = new ArrayList<>();
+    private static int whenStarted = 0;
 
     public static void add(Match match) {
+        match.setStart(whenStarted);
         scoreBoard.add(match);
+        whenStarted++;
     }
 
     public static Match get(int index) {
