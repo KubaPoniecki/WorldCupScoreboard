@@ -1,6 +1,7 @@
 package org.scoreboard;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ScoreBoard {
@@ -33,6 +34,7 @@ public class ScoreBoard {
     }
 
     public static String getSummary() {
+        Collections.sort(scoreBoard);
         StringBuilder summary = new StringBuilder();
         for (int i = 0; i < scoreBoard.size(); i++) {
             summary.append(i+1).append(". ").append(scoreBoard.get(i).getScore()).append("\n");
