@@ -39,6 +39,9 @@ public class ScoreBoard {
     public static String getSummary() {
         Collections.sort(scoreBoard);
         StringBuilder summary = new StringBuilder();
+        if (scoreBoard.isEmpty()) {
+            return "Score board is empty.";
+        }
         for (int i = 0; i < scoreBoard.size(); i++) {
             summary.append(i + 1).append(". ").append(scoreBoard.get(i).getScore()).append("\n");
         }
