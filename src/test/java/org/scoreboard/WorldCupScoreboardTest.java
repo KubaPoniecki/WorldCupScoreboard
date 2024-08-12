@@ -88,18 +88,6 @@ public class WorldCupScoreboardTest {
         ScoreBoard.finish("Spain", "Canada");
     }
 
-    @Test
-    public void getSummaryOfGamesInProgress() {
-        Match match = new Match("Mexico", "Canada");
-        Match match2 = new Match("Spain", "Brazil");
-        Match match3 = new Match("Germany", "France");
-        ScoreBoard.add(match);
-        ScoreBoard.add(match2);
-        ScoreBoard.add(match3);
-        assertEquals("1. Germany 0 - France 0\n" +
-                "2. Spain 0 - Brazil 0\n" +
-                "3. Mexico 0 - Canada 0\n", ScoreBoard.getSummary());
-    }
 
     @Test
     public void getSummaryOfGamesInProgressSorted() {
