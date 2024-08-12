@@ -29,5 +29,6 @@ public class ScoreBoard {
                 return;
             }
         }
+        throw new IllegalArgumentException("The match you are trying to end doesn't exist.");
     }
 }
