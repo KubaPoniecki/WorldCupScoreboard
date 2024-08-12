@@ -40,7 +40,7 @@ public class ScoreBoard {
         Collections.sort(scoreBoard);
         StringBuilder summary = new StringBuilder();
         for (int i = 0; i < scoreBoard.size(); i++) {
-            summary.append(i+1).append(". ").append(scoreBoard.get(i).getScore()).append("\n");
+            summary.append(i + 1).append(". ").append(scoreBoard.get(i).getScore()).append("\n");
         }
         return summary.toString();
     }

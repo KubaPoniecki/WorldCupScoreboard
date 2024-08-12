@@ -2,7 +2,7 @@ package org.scoreboard;
 
 import java.util.Objects;
 
-public class Match implements Comparable<Match>{
+public class Match implements Comparable<Match> {
     private final String homeTeam;
     private final String awayTeam;
     private int homeTeamScore;
@@ -22,6 +22,22 @@ public class Match implements Comparable<Match>{
         return homeTeam + " " + homeTeamScore + " - " + awayTeam + " " + awayTeamScore;
     }
 
+    public String getAwayTeam() {
+        return awayTeam;
+    }
+
+    public String getHomeTeam() {
+        return homeTeam;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public int getWhenStarted() {
+        return whenStarted;
+    }
+
     public void setScore(int homeTeamScore, int awayTeamScore) {
         if (homeTeamScore < 0 || awayTeamScore < 0) {
             throw new IllegalArgumentException("Score can't be negative");
@@ -35,20 +51,12 @@ public class Match implements Comparable<Match>{
         this.whenStarted = whenStarted;
     }
 
-    public String getAwayTeam() {
-        return awayTeam;
-    }
-
-    public String getHomeTeam() {
-        return homeTeam;
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }
-
-    public int getWhenStarted () {
-        return whenStarted;
+    @Override
+    public int compareTo(Match otherMatch) {
+        if (otherMatch.getTotalScore() == getTotalScore()) {
+            return Integer.compare(otherMatch.getWhenStarted(), getWhenStarted());
+        }
+        return Integer.compare(otherMatch.getTotalScore(), getTotalScore());
     }
 
     @Override
@@ -56,19 +64,11 @@ public class Match implements Comparable<Match>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Match match = (Match) o;
-        return homeTeamScore == match.homeTeamScore && awayTeamScore == match.awayTeamScore && totalScore == match.totalScore && Objects.equals(homeTeam, match.homeTeam) && Objects.equals(awayTeam, match.awayTeam);
+        return homeTeamScore == match.homeTeamScore && awayTeamScore == match.awayTeamScore && totalScore == match.totalScore && whenStarted == match.whenStarted && Objects.equals(homeTeam, match.homeTeam) && Objects.equals(awayTeam, match.awayTeam);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(homeTeam, awayTeam, homeTeamScore, awayTeamScore, totalScore);
-    }
-
-    @Override
-    public int compareTo(Match otherMatch) {
-        if (otherMatch.getTotalScore() == getTotalScore()){
-            return Integer.compare(otherMatch.getWhenStarted(), getWhenStarted());
-        }
-        return Integer.compare(otherMatch.getTotalScore(), getTotalScore());
+        return Objects.hash(homeTeam, awayTeam, homeTeamScore, awayTeamScore, totalScore, whenStarted);
     }
 }

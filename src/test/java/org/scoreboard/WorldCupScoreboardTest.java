@@ -1,7 +1,5 @@
 package org.scoreboard;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Before;
@@ -11,7 +9,6 @@ import org.junit.runner.RunWith;
 import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnitParamsRunner.class)
 public class WorldCupScoreboardTest {
