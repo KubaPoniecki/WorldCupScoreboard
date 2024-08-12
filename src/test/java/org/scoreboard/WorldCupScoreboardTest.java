@@ -106,4 +106,22 @@ public class WorldCupScoreboardTest {
                 "2. Germany 1 - France 0\n" +
                 "3. Mexico 0 - Canada 0\n", ScoreBoard.getSummary());
     }
+
+    @Test
+    public void getSummaryOfGamesInProgressSortedWhenTotalScoresAreEqual() {
+        Match match = new Match("Mexico", "Canada");
+        Match match2 = new Match("Spain", "Brazil");
+        Match match3 = new Match("Germany", "France");
+        Match match4 = new Match("Uruguay", "Italy");
+        ScoreBoard.add(match);
+        ScoreBoard.add(match2);
+        ScoreBoard.add(match3);
+        ScoreBoard.add(match4);
+        ScoreBoard.get(1).setScore(2, 4);
+        ScoreBoard.get(2).setScore(1, 0);
+        assertEquals("1. Spain 2 - Brazil 4\n" +
+                "2. Germany 1 - France 0\n" +
+                "3. Uruguay 0 - Italy 0\n" +
+                "4. Mexico 0 - Canada 0\n", ScoreBoard.getSummary());
+    }
 }
