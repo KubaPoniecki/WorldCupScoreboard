@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -14,6 +15,12 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnitParamsRunner.class)
 public class WorldCupScoreboardTest {
+
+    @Before
+    public void init() {
+        ScoreBoard.finishAll();
+    }
+
     @Test
     public void settingNewMatchScoreToZeros() {
         Match match = new Match("Mexico", "Canada");
