@@ -14,8 +14,8 @@ public class Match implements Comparable<Match> {
         if (homeTeam.isBlank() || awayTeam.isBlank()) {
             throw new IllegalArgumentException("Team name can't be empty");
         }
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
+        this.homeTeam = homeTeam.trim();
+        this.awayTeam = awayTeam.trim();
         this.homeTeamScore = 0;
         this.awayTeamScore = 0;
         this.totalScore = 0;
