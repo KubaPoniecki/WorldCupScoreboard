@@ -24,6 +24,12 @@ public class WorldCupScoreboardTest {
         assertEquals("Mexico 0 - Canada 0", match.getScore());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    @Parameters({", Canada", "Canada,", ","})
+    public void createMatchWithEmptyTeamName(String homeTeam, String awayTeam) {
+        Match match = new Match(homeTeam, awayTeam);
+    }
+
     @Test
     @Parameters({"1, 0", "1, 1", "1, 2"})
     public void changingScoreOfMatch(int homeTeamScore, int awayTeamScore) {
