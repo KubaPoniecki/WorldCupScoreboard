@@ -69,4 +69,13 @@ public class WorldCupScoreboardTest {
         assertEquals(1, ScoreBoard.ongoingMatches().size());
     }
 
+
+    @Test(expected = IllegalArgumentException.class)
+    public void finishMatchWhichDoesntExist() {
+        Match match = new Match("Mexico", "Canada");
+        Match match2 = new Match("Spain", "Brazil");
+        ScoreBoard.add(match);
+        ScoreBoard.add(match2);
+        ScoreBoard.finish("Spain", "Canada");
+    }
 }
