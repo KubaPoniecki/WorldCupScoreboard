@@ -121,4 +121,9 @@ public class WorldCupScoreboardTest {
                 "3. Uruguay 0 - Italy 0\n" +
                 "4. Mexico 0 - Canada 0\n", ScoreBoard.getSummary());
     }
+
+    @Test
+    public void getSummaryWhenScoreBoardIsEmpty() {
+        assertEquals("Score board is empty.", ScoreBoard.getSummary());
+    }
 }
