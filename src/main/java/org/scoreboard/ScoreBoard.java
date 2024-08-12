@@ -31,4 +31,12 @@ public class ScoreBoard {
         }
         throw new IllegalArgumentException("The match you are trying to end doesn't exist.");
     }
+
+    public static String getSummary() {
+        StringBuilder summary = new StringBuilder();
+        for (int i = 0; i < scoreBoard.size(); i++) {
+            summary.append(i+1).append(". ").append(scoreBoard.get(i).getScore()).append("\n");
+        }
+        return summary.toString();
+    }
 }
