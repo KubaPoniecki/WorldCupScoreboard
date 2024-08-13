@@ -11,9 +11,9 @@ public class ScoreBoard {
     public static void add(Match match) {
         for (Match m : scoreBoard) {
             if (m.getHomeTeam().equals(match.getHomeTeam()) ||
-            m.getHomeTeam().equals(match.getAwayTeam()) ||
-            m.getAwayTeam().equals(match.getHomeTeam()) ||
-            m.getAwayTeam().equals(match.getAwayTeam())) {
+                    m.getHomeTeam().equals(match.getAwayTeam()) ||
+                    m.getAwayTeam().equals(match.getHomeTeam()) ||
+                    m.getAwayTeam().equals(match.getAwayTeam())) {
                 throw new IllegalArgumentException(match.getHomeTeam() + " and/or " + match.getAwayTeam() + " is already playing.");
             }
         }
