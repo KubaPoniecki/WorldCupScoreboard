@@ -18,3 +18,5 @@ but that would add unnecessary complexity to the sorting and structure of the Ma
 I wasn't sure if the numbering in the summary was important or if it was just a hint to me about what the list should
 look like after sorting. I assumed I got correct value types, i.e. team name is a string.
 As I need only one scoreboard, the implementation is based on a static ArrayList.
+Other idea would be to name the teams using ENUMs - but I think that would require more code and complexity,
+and in reality data I would receive should be correct anyway. 
